@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildWithAwan — Building Software That Solves Real Problems</title>
+    <meta name="description" content="Awan is a Computer Science student building software in public. Specializing in AI Engineering, Flutter, Web Development, and Automation.">
+    <meta name="keywords" content="Awan, BuildWithAwan, software developer, Flutter developer, AI engineer, web development, portfolio, hire developer">
+    <meta name="author" content="Awan">
+    <meta property="og:title" content="BuildWithAwan — Building Software That Solves Real Problems">
+    <meta property="og:description" content="Computer Science student building software in public. AI, Flutter, Web Dev, Automation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://buildwithawan.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BuildWithAwan — Building Software That Solves Real Problems">
+    <meta name="twitter:description" content="Computer Science student building software in public. AI, Flutter, Web Dev, Automation.">
+    <link rel="canonical" href="https://buildwithawan.com">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23000'/><text x='16' y='23' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='20' fill='%233b82f6'>B</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    colors: {
+                        surface: {
+                            DEFAULT: '#000000',
+                            raised: '#0a0a0a',
+                            card: '#111111',
+                            'card-hover': '#161616',
+                        },
+                        line: {
+                            DEFAULT: '#1a1a1a',
+                            hover: '#2a2a2a',
+                        },
+                        accent: {
+                            DEFAULT: '#3b82f6',
+                            hover: '#2563eb',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Awan",
+        "url": "https://buildwithawan.com",
+        "sameAs": [
+            "https://instagram.com/buildwithawan",
+            "https://github.com/buildwithawan"
+        ],
+        "jobTitle": "Software Developer",
+        "knowsAbout": ["AI Engineering", "Flutter", "Web Development", "Mobile Development", "BLE", "Automation", "Reverse Engineering"]
+    }
+    </script>
+
+    <style>
+        ::selection {
+            background: rgba(59, 130, 246, 0.3);
+            color: #fff;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2a2a2a; }
+
+        .dot-grid {
+            background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        .hero-glow {
+            animation: glowPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.9; }
+        }
+
+        .hero-fade {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: heroIn 0.7s ease forwards;
+        }
+
+        @keyframes heroIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gradient-border {
+            position: relative;
+            border-radius: 16px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(59,130,246,0.25), rgba(59,130,246,0.03) 50%, rgba(59,130,246,0.18));
+        }
+
+        .gradient-border-inner {
+            background: #111111;
+            border-radius: 15px;
+            padding: 3rem 2rem;
+        }
+
+        .progress-bar {
+            height: 3px;
+            border-radius: 2px;
+            background: #1a1a1a;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 2px;
+            background: #3b82f6;
+            transition: width 1.2s ease;
+            width: 0;
+        }
+
+        .progress-fill.animated {
+            /* Width set inline via JS */
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .nav-scrolled {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .hero-fade { opacity: 1; transform: none; animation: none; }
+            .hero-glow { animation: none; opacity: 0.6; }
+            .progress-fill { transition: none; }
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- ===================== NAVIGATION ===================== -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="text-white font-semibold text-sm tracking-tight" aria-label="BuildWithAwan Home">BuildWithAwan</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="nav-link text-sm text-zinc-400 hover:text-white transition-colors duration-200">About</a>
+                <a href="#projects" class="nav-link text-sm text-zinc-400 hover:text-white transition-colors duration-200">Projects</a>
+                <a href="#services" class="nav-link text-sm text-zinc-400 hover:text-white transition-colors duration-200">Services</a>
+                <a href="#" class="text-sm text-zinc-600 cursor-default flex items-center gap-1.5 select-none" aria-disabled="true">
+                    Blog
+                    <span class="text-[10px] font-medium bg-zinc-800/80 text-zinc-500 px-1.5 py-0.5 rounded">Soon</span>
+                </a>
+                <div class="flex items-center gap-2 ml-2 pl-4 border-l border-zinc-800">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-xs text-zinc-400">Available</span>
+                </div>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-zinc-400 hover:text-white transition-colors p-1" aria-label="Open menu" aria-expanded="false">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===================== MOBILE MENU ===================== -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300" aria-hidden="true">
+        <button id="menu-close" class="absolute top-5 right-6 text-zinc-400 hover:text-white transition-colors p-1" aria-label="Close menu">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        <a href="#about" class="mobile-link text-2xl font-medium text-zinc-300 hover:text-white transition-colors">About</a>
+        <a href="#projects" class="mobile-link text-2xl font-medium text-zinc-300 hover:text-white transition-colors">Projects</a>
+        <a href="#services" class="mobile-link text-2xl font-medium text-zinc-300 hover:text-white transition-colors">Services</a>
+        <a href="#contact" class="mobile-link text-2xl font-medium text-zinc-300 hover:text-white transition-colors">Contact</a>
+        <div class="flex items-center gap-2 mt-4">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="text-sm text-zinc-400">Available for projects</span>
+        </div>
+    </div>
+
+    <!-- ===================== HERO ===================== -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 dot-grid opacity-30" aria-hidden="true"></div>
+        <div class="hero-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[350px] md:w-[700px] md:h-[450px] rounded-full pointer-events-none" style="background: radial-gradient(ellipse, rgba(59,130,246,0.1) 0%, transparent 70%);" aria-hidden="true"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center pt-16">
+            <div class="hero-fade" style="animation-delay: 0.1s;">
+                <span class="inline-flex items-center gap-2 text-xs font-medium text-zinc-400 bg-zinc-900/80 border border-zinc-800 rounded-full px-4 py-1.5 mb-8">
+                    <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+                    Building in public
+                </span>
+            </div>
+            <h1 class="hero-fade text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.03em] leading-[1.08] mb-6" style="animation-delay: 0.2s;">
+                Building software<br>that solves real problems
+            </h1>
+            <p class="hero-fade text-base sm:text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed" style="animation-delay: 0.35s;">
+                Computer Science student, shipping products, and helping startups turn ideas into working software. From AI to mobile to web.
+            </p>
+            <div class="hero-fade flex flex-col sm:flex-row items-center justify-center gap-4" style="animation-delay: 0.5s;">
+                <a href="#projects" class="inline-flex items-center gap-2 bg-white text-black text-sm font-medium px-6 py-3 rounded-lg hover:bg-zinc-200 transition-colors duration-200">
+                    View Projects
+                    <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </a>
+                <a href="#contact" class="inline-flex items-center gap-2 text-sm font-medium text-zinc-300 border border-zinc-700 px-6 py-3 rounded-lg hover:border-zinc-500 hover:text-white transition-colors duration-200">
+                    Let's Build Something
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hero-fade" style="animation-delay: 0.7s;" aria-hidden="true">
+            <div class="w-5 h-8 rounded-full border-2 border-zinc-700 flex justify-center pt-1.5">
+                <div class="w-1 h-2 bg-zinc-500 rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about" class="py-24 md:py-32">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="reveal max-w-3xl">
+                <span class="text-xs font-medium text-blue-500 tracking-[0.15em] uppercase mb-4 block">About</span>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-[-0.02em] mb-10">Why BuildWithAwan exists</h2>
+                <div class="space-y-5 text-zinc-400 leading-[1.75]">
+                    <p>
+                        I'm Awan — a Computer Science student who got tired of just watching tutorials and reading documentation. At some point, I realized that consuming content without building anything was a trap. You feel productive, but nothing ships.
+                    </p>
+                    <p>
+                        So I started building. Publicly. With real projects, real problems, and real deadlines. BuildWithAwan is my way of holding myself accountable — and hopefully, inspiring others to do the same.
+                    </p>
+                    <p>
+                        My interests span from AI engineering and mobile development to reverse engineering and automation. I don't believe in specializing too early. I believe in building things that teach you what you need to learn next.
+                    </p>
+                    <p>
+                        The long-term vision is clear: build software products that people actually use, and eventually establish a software & AI company. Every line of code I write today is a step toward that.
+                    </p>
+                </div>
+                <div class="mt-14 pt-8 border-t border-zinc-800/60">
+                    <p class="text-xl md:text-2xl font-semibold tracking-[-0.02em]">
+                        Stop consuming. <span class="text-blue-500">Start creating.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section id="projects" class="py-24 md:py-32 border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="reveal mb-14">
+                <span class="text-xs font-medium text-blue-500 tracking-[0.15em] uppercase mb-4 block">Projects</span>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-[-0.02em]">Things I've built</h2>
+            </div>
+
+            <!-- Featured: Flymate -->
+            <div class="reveal bg-surface-card border border-line rounded-2xl overflow-hidden">
+                <div class="grid md:grid-cols-5">
+                    <div class="md:col-span-2 aspect-[4/3] md:aspect-auto relative overflow-hidden bg-zinc-900">
+                        <img src="https://picsum.photos/seed/flymate-ble-gps/800/600.jpg" alt="Flymate application interface showing BLE device tracking and GPS map" class="w-full h-full object-cover opacity-70" loading="lazy">
+                        <div class="absolute top-4 left-4">
+                            <span class="text-[11px] font-medium bg-blue-500/15 text-blue-400 border border-blue-500/25 px-3 py-1 rounded-full">Featured Project</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-3 p-7 md:p-10 flex flex-col justify-center">
+                        <h3 class="text-2xl font-semibold tracking-tight mb-3">Flymate</h3>
+                        <p class="text-zinc-400 mb-6 leading-relaxed text-[15px]">A Flutter-based application combining BLE connectivity with GPS tracking for real-time device monitoring and location services.</p>
+                        <div class="grid sm:grid-cols-2 gap-5 mb-7">
+                            <div>
+                                <span class="text-[10px] font-semibold text-zinc-600 uppercase tracking-[0.12em]">Problem</span>
+                                <p class="text-sm text-zinc-500 mt-1 leading-relaxed">Reliable BLE device tracking with accurate GPS positioning in a single cross-platform app didn't exist for the target use case.</p>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-semibold text-zinc-600 uppercase tracking-[0.12em]">Solution</span>
+                                <p class="text-sm text-zinc-500 mt-1 leading-relaxed">Built a Flutter app that maintains stable BLE connections and overlays device positions on a real-time map interface.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-7">
+                            <span class="text-xs font-medium text-zinc-300 bg-zinc-800/80 px-3 py-1 rounded-md">Flutter</span>
+                            <span class="text-xs font-medium text-zinc-300 bg-zinc-800/80 px-3 py-1 rounded-md">Dart</span>
+                            <span class="text-xs font-medium text-zinc-300 bg-zinc-800/80 px-3 py-1 rounded-md">BLE</span>
+                            <span class="text-xs font-medium text-zinc-300 bg-zinc-800/80 px-3 py-1 rounded-md">GPS</span>
+                            <span class="text-xs font-medium text-zinc-300 bg-zinc-800/80 px-3 py-1 rounded-md">Maps</span>
+                        </div>
+                        <div class="flex items-center gap-5">
+                            <span class="text-xs font-medium text-emerald-400 flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+                                In Development
+                            </span>
+                            <a href="https://github.com/buildwithawan" target="_blank" rel="noopener noreferrer" class="text-xs text-zinc-500 hover:text-white transition-colors flex items-center gap-1">
+                                GitHub <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Projects Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-5" id="projects-grid">
+                <!-- Populated by JS for maintainability -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SERVICES ===================== -->
+    <section id="services" class="py-24 md:py-32 border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="reveal mb-14">
+                <span class="text-xs font-medium text-blue-500 tracking-[0.15em] uppercase mb-4 block">Services</span>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-[-0.02em] mb-3">How I can help you</h2>
+                <p class="text-zinc-500 max-w-lg text-[15px]">I work with startups, founders, and businesses who need software built right — without the overhead of a large team.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4" id="services-grid">
+                <!-- Populated by JS for maintainability -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== BUILD IN PUBLIC ===================== -->
+    <section id="build-in-public" class="py-24 md:py-32 border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="reveal gradient-border max-w-3xl mx-auto">
+                <div class="gradient-border-inner text-center">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/15 flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="camera" class="w-6 h-6 text-blue-400"></i>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4">I build in public</h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6 max-w-lg mx-auto text-[15px]">
+                        Every project, every failure, every breakthrough — I document it all on Instagram. No highlights reel. Just the real process of building software from scratch.
+                    </p>
+                    <a href="https://instagram.com/buildwithawan" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors duration-200">
+                        @buildwithawan
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CURRENT BUILD ===================== -->
+    <section id="current-build" class="py-24 md:py-32 border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="reveal mb-14">
+                <span class="text-xs font-medium text-blue-500 tracking-[0.15em] uppercase mb-4 block">Current Build</span>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-[-0.02em]">What I'm working on now</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6" id="current-build-content">
+                <!-- Populated by JS — edit the currentBuild object to update -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== TECH STACK ===================== -->
+    <section id="tech-stack" class="py-24 md:py-32 border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="reveal mb-14">
+                <span class="text-xs font-medium text-blue-500 tracking-[0.15em] uppercase mb-4 block">Tech Stack</span>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-[-0.02em] mb-3">Tools I use to build</h2>
+                <p class="text-zinc-500 max-w-lg text-[15px]">Not just icons on a page. Here's how each technology fits into my workflow.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4" id="tech-grid">
+                <!-- Populated by JS for maintainability -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="py-24 md:py-32 border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="reveal max-w-2xl">
+                <span class="text-xs font-medium text-blue-500 tracking-[0.15em] uppercase mb-4 block">Contact</span>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-[-0.02em] mb-4">Let's work together</h2>
+                <p class="text-zinc-400 leading-relaxed mb-10 text-[15px]">
+                    Have a project in mind? Need technical help? Or just want to connect? I'm always open to interesting conversations and opportunities.
+                </p>
+                <div class="grid sm:grid-cols-2 gap-3" id="contact-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="border-t border-zinc-900 py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div>
+                    <span class="text-sm font-semibold tracking-tight text-zinc-300">BuildWithAwan</span>
+                    <p class="text-xs text-zinc-600 mt-1.5">Stop consuming. Start creating.</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="https://github.com/buildwithawan" target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-zinc-300 transition-colors duration-200" aria-label="GitHub">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://instagram.com/buildwithawan" target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-zinc-300 transition-colors duration-200" aria-label="Instagram">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/buildwithawan" target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-zinc-300 transition-colors duration-200" aria-label="LinkedIn">
+                        <i data-lucide="linkedin" class="w-4 h-4"></i>
+                    </a>
+                    <a href="mailto:hello@buildwithawan.com" class="text-zinc-600 hover:text-zinc-300 transition-colors duration-200" aria-label="Email">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-zinc-900/60">
+                <p class="text-[11px] text-zinc-700">&copy; 2025 BuildWithAwan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================== JAVASCRIPT ===================== -->
+    <script>
+        // =============================================
+        // DATA — Edit these objects to update content
+        // =============================================
+
+        const otherProjects = [
+            {
+                name: "NOVA",
+                description: "Next-generation project currently in the planning and architecture phase.",
+                status: "Planning",
+                statusColor: "text-zinc-500",
+                icon: "rocket",
+                github: "https://github.com/buildwithawan"
+            },
+            {
+                name: "AI-OS",
+                description: "Exploring AI-powered operating system concepts and intelligent interfaces.",
+                status: "Research",
+                statusColor: "text-amber-400",
+                icon: "cpu",
+                github: "https://github.com/buildwithawan"
+            },
+            {
+                name: "ML Experiments",
+                description: "Machine learning models, training pipelines, and dataset experiments.",
+                status: "Active",
+                statusColor: "text-emerald-400",
+                icon: "brain",
+                github: "https://github.com/buildwithawan"
+            },
+            {
+                name: "Automation Tools",
+                description: "Custom scripts and bots that eliminate repetitive workflows.",
+                status: "Ongoing",
+                statusColor: "text-blue-400",
+                icon: "zap",
+                github: "https://github.com/buildwithawan"
+            }
+        ];
+
+        const services = [
+            {
+                icon: "brain",
+                title: "AI Integration",
+                tagline: "Add intelligence to your existing products.",
+                problem: "Your product needs AI but you lack the expertise or bandwidth.",
+                solution: "I integrate AI models and APIs into your existing stack — cleanly, reliably.",
+                deliverables: ["API Integration", "Custom Model Deployment", "AI-Powered Features"]
+            },
+            {
+                icon: "globe",
+                title: "Web Development",
+                tagline: "Modern, fast web applications that convert.",
+                problem: "You need a web presence that actually performs — not just looks good.",
+                solution: "I build with modern frameworks for speed, SEO, and user experience.",
+                deliverables: ["Landing Pages", "Web Applications", "Dashboards"]
+            },
+            {
+                icon: "smartphone",
+                title: "Flutter Development",
+                tagline: "Cross-platform mobile apps, one codebase.",
+                problem: "Building separate iOS and Android apps is expensive and slow.",
+                solution: "Flutter delivers native-quality apps on both platforms from a single codebase.",
+                deliverables: ["iOS & Android Apps", "BLE Integration", "GPS & Maps"]
+            },
+            {
+                icon: "zap",
+                title: "Automation",
+                tagline: "Eliminate repetitive tasks from your workflow.",
+                problem: "Your team spends hours on manual processes that could be automated.",
+                solution: "Custom scripts, bots, and workflows that save time and reduce errors.",
+                deliverables: ["Custom Scripts", "Workflow Bots", "Process Optimization"]
+            },
+            {
+                icon: "box",
+                title: "MVP Development",
+                tagline: "From idea to working prototype, fast.",
+                problem: "You have a product idea but need to validate it before committing resources.",
+                solution: "I build lean, functional MVPs that let you test assumptions with real users.",
+                deliverables: ["Feature Scoping", "Rapid Prototyping", "User-Testable Builds"]
+            },
+            {
+                icon: "message-circle",
+                title: "Technical Consultation",
+                tagline: "Expert guidance on architecture and strategy.",
+                problem: "You're making critical tech decisions without someone experienced to validate them.",
+                solution: "I help you choose the right stack, architecture, and approach for your product.",
+                deliverables: ["Tech Audits", "Architecture Reviews", "Roadmap Planning"]
+            }
+        ];
+
+        const currentBuild = {
+            project: {
+                name: "Flymate",
+                status: "Active Development",
+                description: "BLE + GPS tracking application built with Flutter. Currently focused on connection stability and map accuracy."
+            },
+            learning: [
+                "AI Engineering — LLMs, RAG architectures, fine-tuning",
+                "Reverse Engineering — Android internals, protocol analysis"
+            ],
+            roadmap: [
+                { task: "BLE connection stability", progress: 80 },
+                { task: "GPS tracking accuracy", progress: 60 },
+                { task: "UI/UX polish", progress: 35 },
+                { task: "Beta testing & feedback", progress: 10 }
+            ]
+        };
+
+        const techCategories = [
+            {
+                title: "Languages",
+                items: [
+                    { name: "TypeScript", note: "Web apps, tools, and full-stack projects" },
+                    { name: "Dart", note: "Flutter cross-platform mobile apps" },
+                    { name: "Python", note: "AI/ML pipelines, automation, scripting" },
+                    { name: "C++", note: "Systems programming, reverse engineering" }
+                ]
+            },
+            {
+                title: "Frameworks",
+                items: [
+                    { name: "Flutter", note: "Cross-platform mobile development" },
+                    { name: "Next.js", note: "Production web applications" },
+                    { name: "React", note: "Interactive user interfaces" }
+                ]
+            },
+            {
+                title: "Tools & Platforms",
+                items: [
+                    { name: "Firebase", note: "Backend, auth, real-time database" },
+                    { name: "Git", note: "Version control and collaboration" },
+                    { name: "Vercel", note: "Deployment and hosting" },
+                    { name: "VS Code", note: "Primary development environment" }
+                ]
+            },
+            {
+                title: "Domains",
+                items: [
+                    { name: "AI / ML", note: "Model integration and AI features" },
+                    { name: "BLE", note: "Bluetooth Low Energy communication" },
+                    { name: "GPS / Location", note: "Tracking and mapping solutions" },
+                    { name: "Automation", note: "Workflow optimization and bots" }
+                ]
+            }
+        ];
+
+        const contactMethods = [
+            { icon: "mail", label: "Email", value: "hello@buildwithawan.com", href: "mailto:hello@buildwithawan.com" },
+            { icon: "github", label: "GitHub", value: "github.com/buildwithawan", href: "https://github.com/buildwithawan" },
+            { icon: "instagram", label: "Instagram", value: "@buildwithawan", href: "https://instagram.com/buildwithawan" },
+            { icon: "linkedin", label: "LinkedIn", value: "linkedin.com/in/buildwithawan", href: "https://linkedin.com/in/buildwithawan" },
+            { icon: "message-circle", label: "WhatsApp", value: "Send a message", href: "https://wa.me/0000000000" }
+        ];
+
+        // =============================================
+        // RENDER FUNCTIONS
+        // =============================================
+
+        function renderProjects() {
+            const grid = document.getElementById('projects-grid');
+            grid.innerHTML = otherProjects.map((p, i) => `
+                <div class="reveal group bg-surface-card border border-line rounded-xl p-6 hover:border-line-hover hover:bg-surface-card-hover transition-all duration-200 cursor-pointer" style="transition-delay: ${i * 60}ms;">
+                    <div class="w-9 h-9 rounded-lg bg-zinc-800/80 flex items-center justify-center mb-4 group-hover:bg-zinc-700/80 transition-colors duration-200">
+                        <i data-lucide="${p.icon}" class="w-4 h-4 text-zinc-500 group-hover:text-zinc-300 transition-colors duration-200"></i>
+                    </div>
+                    <h4 class="text-[15px] font-medium mb-1.5">${p.name}</h4>
+                    <p class="text-sm text-zinc-600 leading-relaxed mb-4">${p.description}</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-medium ${p.statusColor} flex items-center gap-1">
+                            <span class="w-1 h-1 ${p.statusColor === 'text-emerald-400' ? 'bg-emerald-400' : p.statusColor === 'text-amber-400' ? 'bg-amber-400' : p.statusColor === 'text-blue-400' ? 'bg-blue-400' : 'bg-zinc-500'} rounded-full"></span>
+                            ${p.status}
+                        </span>
+                        <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-zinc-600 hover:text-zinc-300 transition-colors flex items-center gap-0.5">
+                            GitHub <i data-lucide="arrow-up-right" class="w-2.5 h-2.5"></i>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderServices() {
+            const grid = document.getElementById('services-grid');
+            grid.innerHTML = services.map((s, i) => `
+                <div class="reveal group bg-surface-card border border-line rounded-xl p-7 hover:border-line-hover hover:bg-surface-card-hover transition-all duration-200" style="transition-delay: ${i * 50}ms;">
+                    <div class="w-10 h-10 rounded-lg bg-blue-500/8 border border-blue-500/12 flex items-center justify-center mb-5">
+                        <i data-lucide="${s.icon}" class="w-5 h-5 text-blue-500/80"></i>
+                    </div>
+                    <h3 class="text-base font-medium tracking-tight mb-1">${s.title}</h3>
+                    <p class="text-sm text-zinc-500 mb-5">${s.tagline}</p>
+                    <div class="space-y-3 mb-5">
+                        <div>
+                            <span class="text-[10px] font-semibold text-zinc-600 uppercase tracking-[0.1em]">Problem</span>
+                            <p class="text-xs text-zinc-500 mt-0.5 leading-relaxed">${s.problem}</p>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-semibold text-zinc-600 uppercase tracking-[0.1em]">Solution</span>
+                            <p class="text-xs text-zinc-500 mt-0.5 leading-relaxed">${s.solution}</p>
+                        </div>
+                    </div>
+                    <div class="text-xs text-zinc-500 space-y-1.5 mb-5">
+                        ${s.deliverables.map(d => `<div class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-blue-500/70 flex-shrink-0"></i>${d}</div>`).join('')}
+                    </div>
+                    <a href="#contact" class="text-xs font-medium text-blue-500 hover:text-blue-400 transition-colors duration-200 flex items-center gap-1">
+                        Get Started <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        function renderCurrentBuild() {
+            const container = document.getElementById('current-build-content');
+
+            const projectHTML = `
+                <div class="reveal bg-surface-card border border-line rounded-xl p-7">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                        <span class="text-[10px] font-semibold text-zinc-500 uppercase tracking-[0.12em]">Current Project</span>
+                    </div>
+                    <h3 class="text-xl font-semibold tracking-tight mb-2">${currentBuild.project.name}</h3>
+                    <span class="inline-block text-[11px] font-medium text-emerald-400 bg-emerald-500/10 border border-emerald-500/15 px-2.5 py-0.5 rounded-full mb-4">${currentBuild.project.status}</span>
+                    <p class="text-sm text-zinc-500 leading-relaxed">${currentBuild.project.description}</p>
+                </div>
+            `;
+
+            const learningHTML = `
+                <div class="reveal bg-surface-card border border-line rounded-xl p-7" style="transition-delay: 80ms;">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                        <span class="text-[10px] font-semibold text-zinc-500 uppercase tracking-[0.12em]">Currently Learning</span>
+                    </div>
+                    <div class="space-y-3">
+                        ${currentBuild.learning.map(l => `
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="book-open" class="w-4 h-4 text-zinc-600 mt-0.5 flex-shrink-0"></i>
+                                <span class="text-sm text-zinc-400 leading-relaxed">${l}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            const roadmapHTML = `
+                <div class="reveal md:col-span-2 bg-surface-card border border-line rounded-xl p-7" style="transition-delay: 120ms;">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-2 h-2 bg-amber-400 rounded-full"></div>
+                        <span class="text-[10px] font-semibold text-zinc-500 uppercase tracking-[0.12em]">Roadmap</span>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5">
+                        ${currentBuild.roadmap.map(r => `
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm text-zinc-300">${r.task}</span>
+                                    <span class="text-xs text-zinc-600 font-medium tabular-nums">${r.progress}%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="${r.progress}"></div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = projectHTML + learningHTML + roadmapHTML;
+        }
+
+        function renderTechStack() {
+            const grid = document.getElementById('tech-grid');
+            grid.innerHTML = techCategories.map((cat, i) => `
+                <div class="reveal bg-surface-card border border-line rounded-xl p-6" style="transition-delay: ${i * 60}ms;">
+                    <h3 class="text-[11px] font-semibold text-zinc-500 uppercase tracking-[0.12em] mb-5">${cat.title}</h3>
+                    <div class="space-y-4">
+                        ${cat.items.map(item => `
+                            <div>
+                                <span class="text-sm text-zinc-200 font-medium block">${item.name}</span>
+                                <span class="text-xs text-zinc-600 leading-relaxed">${item.note}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderContact() {
+            const grid = document.getElementById('contact-grid');
+            grid.innerHTML = contactMethods.map((c, i) => `
+                <a href="${c.href}" ${c.href.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''} class="reveal group flex items-center gap-4 p-4 bg-surface-card border border-line rounded-xl hover:border-line-hover transition-all duration-200" style="transition-delay: ${i * 50}ms;">
+                    <div class="w-10 h-10 rounded-lg bg-zinc-800/80 flex items-center justify-center group-hover:bg-zinc-700/80 transition-colors duration-200 flex-shrink-0">
+                        <i data-lucide="${c.icon}" class="w-[18px] h-[18px] text-zinc-500 group-hover:text-zinc-300 transition-colors duration-200"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="text-[11px] text-zinc-600 mb-0.5">${c.label}</div>
+                        <div class="text-sm text-zinc-300 truncate">${c.value}</div>
+                    </div>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-zinc-700 group-hover:text-zinc-400 transition-colors duration-200 ml-auto flex-shrink-0"></i>
+                </a>
+            `).join('');
+        }
+
+        // =============================================
+        // INTERACTIONS
+        // =============================================
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        function updateNav() {
+            const scrollY = window.scrollY;
+            if (scrollY > 20) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+            lastScroll = scrollY;
+        }
+
+        window.addEventListener('scroll', updateNav, { passive: true });
+        updateNav();
+
+        // Mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+        function openMenu() {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+            mobileMenu.setAttribute('aria-hidden', 'false');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Close menu on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
+        });
+
+        // Scroll reveal with Intersection Observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        function observeReveals() {
+            document.querySelectorAll('.reveal').forEach(el => {
+                revealObserver.observe(el);
+            });
+        }
+
+        // Progress bar animation
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const fill = entry.target;
+                    const width = fill.getAttribute('data-width');
+                    requestAnimationFrame(() => {
+                        fill.style.width = width + '%';
+                    });
+                    progressObserver.unobserve(fill);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        function observeProgressBars() {
+            document.querySelectorAll('.progress-fill').forEach(bar => {
+                progressObserver.observe(bar);
+            });
+        }
+
+        // Active nav link highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href === '#' + id) {
+                            link.classList.remove('text-zinc-400');
+                            link.classList.add('text-white');
+                        } else {
+                            link.classList.remove('text-white');
+                            link.classList.add('text-zinc-400');
+                        }
+                    });
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '-80px 0px -50% 0px'
+        });
+
+        sections.forEach(section => sectionObserver.observe(section));
+
+        // =============================================
+        // INITIALIZATION
+        // =============================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjects();
+            renderServices();
+            renderCurrentBuild();
+            renderTechStack();
+            renderContact();
+
+            lucide.createIcons();
+
+            requestAnimationFrame(() => {
+                observeReveals();
+                observeProgressBars();
+            });
+        });
+    </script>
+</body>
+</html>
